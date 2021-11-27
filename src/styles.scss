@@ -1,1 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: lato-light;
+  src: url(assets/fonts/Lato/Lato-Light.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: lato-regular;
+  src: url(assets/fonts/Lato/Lato-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: lato-bold;
+  src: url(assets/fonts/Lato/Lato-Bold.ttf) format("truetype");
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'lato-regular', 'arial', sans-serif;
+}

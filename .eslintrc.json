@@ -38,6 +38,8 @@
           }
         ],
         "@angular-eslint/use-lifecycle-interface": "error",
+        "@angular-eslint/no-empty-lifecycle-method": "off",
+        "@typescript-eslint/no-empty-function": ["error", { "allow": ["arrowFunctions", "constructors", "methods"]}],
         "@typescript-eslint/consistent-type-definitions": "error",
         "@typescript-eslint/explicit-member-accessibility": [
           "off",
@@ -46,7 +48,7 @@
           }
         ],
         "@typescript-eslint/no-unnecessary-boolean-literal-compare": "error",
-        "arrow-parens": ["error", "as-needed"],
+        "arrow-parens": ["error", "always"],
         "comma-dangle": ["error", "always-multiline"],
         "computed-property-spacing": ["error", "never"],
         "no-duplicate-imports": "error",

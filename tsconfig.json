@@ -29,6 +29,7 @@
       "@ui/*": ["src/app/ui/*"],
       "@pages/*": ["src/app/pages/*"],
       "@environments/*": ["src/environments/*"],
+      "@assets/*": ["src/assets/*"],
     }
   },
   "angularCompilerOptions": {

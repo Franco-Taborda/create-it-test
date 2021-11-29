@@ -1,3 +1,4 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { findComponent } from '@shared/utils/test-utils';
 import { HomeViewComponent } from './home-view.component';
@@ -10,7 +11,7 @@ describe('HomeViewComponent', () => {
     waitForAsync(() => {
       TestBed.configureTestingModule({
         declarations: [HomeViewComponent],
-        imports: [],
+        schemas: [CUSTOM_ELEMENTS_SCHEMA],
       }).compileComponents();
     }),
   );
@@ -28,5 +29,10 @@ describe('HomeViewComponent', () => {
   it('should show a billboard component', () => {
     const billboard = findComponent(fixture, 'app-billboard');
     expect(billboard).toBeTruthy();
+  });
+
+  it('should show a top movies row component', () => {
+    const topMoviesRow = findComponent(fixture, '[data-test=top-movies-row]');
+    expect(topMoviesRow).toBeTruthy();
   });
 });

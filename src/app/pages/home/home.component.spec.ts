@@ -6,22 +6,30 @@ import { MovieService } from '@core/services/movie/movie.service';
 import { MOVIES_FEED_DETAILS_LIST_MOCK } from '@shared/utils/mocks/movies-feed.mocks';
 import { findComponentByDirective } from '@shared/utils/test-utils';
 import { HomeViewComponent } from './view/home-view.component';
-import { DebugElement } from '@angular/core';
+import { MovieProviderService } from '@shared/providers/movie-provider/movie-provider.service';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
   let fixture: ComponentFixture<HomeComponent>;
   let mockStore: MockStore<MoviesState>;
-  let viewComponent: DebugElement;
+  let viewComponent: HomeViewComponent;
+  let movieProviderService: MovieProviderService;
 
   beforeEach(
     waitForAsync(() => {
+      const MOVIES_STATE_MOCK: MoviesState = {
+        topMoviesFeed: MOVIES_FEED_DETAILS_LIST_MOCK,
+        topMoviesFeedError: null,
+      };
+
       TestBed.configureTestingModule({
         declarations: [HomeComponent, HomeViewComponent],
-        imports: [],
+        schemas: [CUSTOM_ELEMENTS_SCHEMA],
         providers: [
           MovieService,
-          provideMockStore({ initialState: { [moviesFeatureKey]: MOVIES_FEED_DETAILS_LIST_MOCK } }),
+          MovieProviderService,
+          provideMockStore({ initialState: { [moviesFeatureKey]: MOVIES_STATE_MOCK } }),
         ],
       })
         .compileComponents()
@@ -29,7 +37,8 @@ describe('HomeComponent', () => {
           fixture = TestBed.createComponent(HomeComponent);
           mockStore = TestBed.inject(MockStore);
           component = fixture.componentInstance;
-          viewComponent = findComponentByDirective(fixture, HomeViewComponent);
+          viewComponent = findComponentByDirective(fixture, HomeViewComponent).componentInstance;
+          movieProviderService = TestBed.inject(MovieProviderService);
 
           fixture.detectChanges();
         });
@@ -48,8 +57,16 @@ describe('HomeComponent', () => {
   });
 
   it('should set background image for view', () => {
-    const expected = component.bgImgSource;
+    const rawImage = MOVIES_FEED_DETAILS_LIST_MOCK[0]['im:image'][0].label as string;
+    const expected = movieProviderService.getBiggerImage(rawImage);
 
-    expect(viewComponent.attributes['bgImgSource']).toBe(expected);
+    expect(viewComponent['bgImgSource']).toBe(expected);
+  });
+
+  it('should set the top movies row data', () => {
+    const expected = movieProviderService.feedToMovieRowDataList(MOVIES_FEED_DETAILS_LIST_MOCK);
+
+    expect(component.topMoviesRowData).toEqual(expected);
+    expect(viewComponent['topMoviesRowData']).toEqual(expected);
   });
 });

@@ -8,6 +8,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { reducer, moviesFeatureKey, MoviesEffects } from '@models/movies/store';
 import { CommonModule } from '@angular/common';
 import { MovieService } from '@core/services/movie/movie.service';
+import { MovieProviderService } from '@shared/providers/movie-provider/movie-provider.service';
 
 @NgModule({
   imports: [
@@ -19,6 +20,6 @@ import { MovieService } from '@core/services/movie/movie.service';
   ],
   exports: [HomeComponent],
   declarations: [HomeComponent],
-  providers: [MovieService],
+  providers: [MovieService, MovieProviderService],
 })
 export class HomeModule {}

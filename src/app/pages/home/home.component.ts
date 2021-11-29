@@ -5,6 +5,8 @@ import { Store } from '@ngrx/store';
 import { takeUntil } from 'rxjs';
 import { selectNotNullTopMoviesFeed, fetchTopMoviesFeed } from '@models/movies/store/';
 import { IMovieFeedDetailList } from '@models/movies/interface/movie.interface';
+import { IMoviesRowDataList } from '@models/movies/interface/movies-row.interface';
+import { MovieProviderService } from '@shared/providers/movie-provider/movie-provider.service';
 
 @Component({
   selector: 'app-home',
@@ -12,8 +14,9 @@ import { IMovieFeedDetailList } from '@models/movies/interface/movie.interface';
 })
 export class HomeComponent extends SmartComponent implements OnInit {
   public bgImgSource: string;
+  public topMoviesRowData: IMoviesRowDataList;
 
-  constructor(private store: Store<MoviesState>) {
+  constructor(private store: Store<MoviesState>, private movieProviderService: MovieProviderService) {
     super();
   }
 
@@ -34,7 +37,8 @@ export class HomeComponent extends SmartComponent implements OnInit {
 
   private feedFetchHandler(moviesFeed: IMovieFeedDetailList | null): void {
     if (moviesFeed) {
-      this.bgImgSource = moviesFeed[0]['im:image'][0]?.label?.replace(/\/\d*x\d*bb.png/, '/1000x1000bb.webp') ?? '';
+      this.bgImgSource = this.movieProviderService.getBiggerImage(moviesFeed[0]['im:image'][0]?.label ?? '');
+      this.topMoviesRowData = this.movieProviderService.feedToMovieRowDataList(moviesFeed);
     }
   }
 }

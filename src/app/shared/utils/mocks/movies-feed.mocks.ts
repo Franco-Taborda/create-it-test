@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
-import { IMovieFeed, IMovieFeedDetailList } from '@models/movies/interface/movie.interface';
+import { IMovieFeed, IMovieFeedDetail, IMovieFeedDetailList } from '@models/movies/interface/movie.interface';
+import { IMoviesRowDataList } from '@models/movies/interface/movies-row.interface';
 export const MOVIES_FEED_DETAILS_LIST_MOCK: IMovieFeedDetailList = [
   {
     'im:name': { label: 'Venom: Let There Be Carnage' },
@@ -73,6 +74,16 @@ export const MOVIES_FEED_DETAILS_LIST_MOCK: IMovieFeedDetailList = [
     },
   },
 ];
+
+export const FEED_ROW_DATA_MOCK: IMovieFeedDetailList = [
+  {
+    'im:name': { label: 'Test' },
+    'im:image': [{ label: 'test/test.webp' }],
+    id: { label: 'testId' },
+  } as IMovieFeedDetail,
+];
+
+export const FEED_ROW_DATA_LIST_MOCK: IMoviesRowDataList = [{ id: 'testId', imgSrc: 'test/test.webp', label: 'Test' }];
 
 export const MOVIES_FEED_MOCK: IMovieFeed = {
   feed: {

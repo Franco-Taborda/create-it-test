@@ -6,6 +6,5 @@ import { BillboardComponent } from './billboard.component';
   imports: [],
   exports: [BillboardComponent],
   declarations: [BillboardComponent],
-  providers: [],
 })
 export class BillboardModule {}

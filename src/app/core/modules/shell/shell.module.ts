@@ -5,7 +5,7 @@ import { ShellComponent } from './view/shell.component';
 import { StylesModule } from './styles/styles.module';
 import { SharedModule } from '@shared/shared.module';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { MaterialModule } from '@app/ui/material.module';
+import { MaterialModule } from '@ui/material.module';
 
 @NgModule({
   imports: [CommonModule, RouterModule, SharedModule, StylesModule, MaterialModule],

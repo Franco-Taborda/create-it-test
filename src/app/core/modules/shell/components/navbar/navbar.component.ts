@@ -1,15 +1,18 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, HostListener, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
 })
-export class NavbarComponent {
-  constructor(private router: Router) {}
+export class NavbarComponent implements OnInit {
+  public isScrolled: boolean;
 
-  onNavigate(url: string): void {
-    this.router.navigate([`${url}`]);
+  @HostListener('window:scroll')
+  scrollEvent() {
+    this.isScrolled = window.pageYOffset >= 80;
   }
+  constructor() {}
+
+  ngOnInit(): void {}
 }

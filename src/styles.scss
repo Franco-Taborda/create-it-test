@@ -48,10 +48,17 @@ $dark-theme: mat.define-dark-theme((
   src: url(assets/fonts/Lato/Lato-Bold.ttf) format('truetype');
 }
 
-html, body { height: 100%; }
-body { margin: 0; }
+$custom-typography: mat.define-typography-config(
+  $font-family: "lato-regular"
+);
+@include mat.core($custom-typography);
 
-* {
+$bg-black: #141414;
+
+html, body { height: 100%; }
+body { margin: 0; background: $bg-black }
+
+*:not(mat-icon) {
   font-family: 'lato-regular', Roboto, "Helvetica Neue", sans-serif;
   font-size: 14px;
 }

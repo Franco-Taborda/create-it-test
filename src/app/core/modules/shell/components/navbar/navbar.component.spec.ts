@@ -4,7 +4,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { SharedModule } from '@shared/shared.module';
 import { NavbarComponent } from './navbar.component';
 import { findComponent } from '@shared/utils/test-utils';
-import { MaterialModule } from '@app/ui/material.module';
+import { MaterialModule } from '@ui/material.module';
 
 describe('NavbarComponent', () => {
   let component: NavbarComponent;

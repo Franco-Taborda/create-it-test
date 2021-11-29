@@ -10,7 +10,8 @@
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "sourceMap": true,
+    "strictPropertyInitialization": false,
+    "sourceMap": false,
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
@@ -23,13 +24,13 @@
       "dom"
     ],
     "paths": {
-      "@app/*": ["src/app/*"],
       "@core/*": ["src/app/core/*"],
       "@shared/*": ["src/app/shared/*"],
       "@ui/*": ["src/app/ui/*"],
       "@pages/*": ["src/app/pages/*"],
+      "@models/*": ["src/app/models/*"],
       "@environments/*": ["src/environments/*"],
-      "@assets/*": ["src/assets/*"],
+      "@assets/*": ["src/assets/*"]
     }
   },
   "angularCompilerOptions": {

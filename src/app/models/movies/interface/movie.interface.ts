@@ -50,6 +50,7 @@ export interface IMovieFeedDetail {
   'im:artist': IMovieFeedBaseDetail;
   category: IMovieFeedBaseDetail;
   'im:releaseDate': IMovieFeedBaseDetail;
+  'im:rentalPrice'?: IMovieFeedBaseDetail;
 }
 
 export type IMovieFeedDetailList = IMovieFeedDetail[];

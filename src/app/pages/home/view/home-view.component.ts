@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { DumbComponent } from '@core/components/dumb.component';
 import { IMoviesRowDataList } from '@models/movies/interface/movies-row.interface';
 import { OwlOptions } from 'ngx-owl-carousel-o';
@@ -9,36 +9,28 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
   styleUrls: ['./home-view.component.scss'],
 })
 export class HomeViewComponent extends DumbComponent implements OnInit {
+  @Input() rowMaxLen = 8;
   @Input() bgImgSource: string;
   @Input() topMoviesRowData: IMoviesRowDataList;
+  @Output() topMoviesSearchEvent: EventEmitter<string> = new EventEmitter();
 
-  customOptions: OwlOptions = {
+  public topMoviesRowDataList: IMoviesRowDataList;
+  public topMoviesQuery = '';
+  public owlCustomOptions: OwlOptions = {
     margin: 20,
     loop: true,
     mouseDrag: true,
     touchDrag: true,
     pullDrag: true,
-    stagePadding: 60,
     dots: false,
     navSpeed: 160,
     navText: ['', ''],
     slideBy: 6,
+    center: true,
     responsive: {
-      0: {
-        items: 1,
-      },
-      600: {
-        items: 3,
-      },
-      960: {
-        items: 5,
-      },
-      1200: {
-        items: 6,
-      },
-      1300: {
-        items: 10,
-      },
+      0: { items: this.rowMaxLen },
+      960: { items: this.rowMaxLen },
+      1300: { items: this.rowMaxLen },
     },
     nav: false,
   };
@@ -48,4 +40,8 @@ export class HomeViewComponent extends DumbComponent implements OnInit {
   }
 
   ngOnInit() {}
+
+  public onTopMovieSearch(): void {
+    this.topMoviesSearchEvent.emit(this.topMoviesQuery);
+  }
 }

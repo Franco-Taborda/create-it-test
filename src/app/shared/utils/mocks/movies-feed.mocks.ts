@@ -73,6 +73,178 @@ export const MOVIES_FEED_DETAILS_LIST_MOCK: IMovieFeedDetailList = [
       attributes: { label: 'October 1, 2021' },
     },
   },
+  {
+    'im:name': { label: 'Testing: The Testing of The Tests' },
+    'im:image': [
+      {
+        label:
+          'https://is5-ssl.mzstatic.com/image/thumb/Video116/v4/e2/f0/c6/e2f0c6ca-7687-812b-ba37-3a5bbec5d9f9/contsched.aqqjnfzv.lsr/39x60bb.png',
+        attributes: { height: '60' },
+      },
+      {
+        label:
+          'https://is5-ssl.mzstatic.com/image/thumb/Video116/v4/e2/f0/c6/e2f0c6ca-7687-812b-ba37-3a5bbec5d9f9/contsched.aqqjnfzv.lsr/39x60bb.png',
+        attributes: { height: '60' },
+      },
+      {
+        label:
+          'https://is4-ssl.mzstatic.com/image/thumb/Video116/v4/e2/f0/c6/e2f0c6ca-7687-812b-ba37-3a5bbec5d9f9/contsched.aqqjnfzv.lsr/113x170bb.png',
+        attributes: { height: '170' },
+      },
+    ],
+    summary: {
+      label: 'Test is looking for tests testing tests',
+    },
+    'im:price': {
+      label: '$19.99',
+      attributes: { amount: '19.99', currency: 'USD' },
+    },
+    'im:contentType': {
+      attributes: { term: 'Movie', label: 'Movie' },
+    },
+    rights: {
+      label: '© 2021 Columbia Pictures Industries, Inc. All Rights Reserved.',
+    },
+    title: { label: 'Testing: The Testing of The Tests - Test' },
+    link: [
+      {
+        attributes: {
+          rel: 'alternate',
+          type: 'text/html',
+          href: 'https://itunes.apple.com/us/movie/testing-the-testing-of-the-tests/',
+        },
+      },
+      {
+        'im:duration': { label: '122175.0' },
+        attributes: {
+          title: 'Preview',
+          rel: 'enclosure',
+          type: 'video/x-m4v',
+          href: 'https://video-ssl.itunes.apple.com/itunes-assets/Video126/v4/af/14/0e/af140e53-8aca-22ec-f205-3850a621c05e/mzvf_99531290753870842.640x458.h264lc.U.p.m4v',
+          'im:assetType': 'preview',
+        },
+      },
+    ],
+    id: {
+      label: 'https://itunes.apple.com/us/movie/testing-the-testing-of-the-tests/',
+      attributes: { 'im:id': '1586463531' },
+    },
+    'im:artist': { label: 'Andy Serkis' },
+    category: {
+      attributes: {
+        'im:id': '4401',
+        term: 'Action & Adventure',
+        scheme: 'https://itunes.apple.com/us/genre/movies-action-adventure/id4401?uo=2',
+        label: 'Action & Adventure',
+      },
+    },
+    'im:releaseDate': {
+      label: '2021-10-01T00:00:00-07:00',
+      attributes: { label: 'October 1, 2021' },
+    },
+  },
+  {
+    'im:name': {
+      label: 'Free Guy',
+    },
+    rights: {
+      label: '© 2020 20th Century Studios. All Rights Reserved.',
+    },
+    'im:image': [
+      {
+        label:
+          'https://is5-ssl.mzstatic.com/image/thumb/Video125/v4/e3/8c/25/e38c257c-26a8-d534-5ead-d1f4e3c53118/DIS_FREE_GUY_ITUNES_KEY_ART_US_ARTWORK_EN_2000x3000_2XJF0600000199.lsr/39x60bb.png',
+        attributes: {
+          height: '60',
+        },
+      },
+      {
+        label:
+          'https://is5-ssl.mzstatic.com/image/thumb/Video125/v4/e3/8c/25/e38c257c-26a8-d534-5ead-d1f4e3c53118/DIS_FREE_GUY_ITUNES_KEY_ART_US_ARTWORK_EN_2000x3000_2XJF0600000199.lsr/39x60bb.png',
+        attributes: {
+          height: '60',
+        },
+      },
+      {
+        label:
+          'https://is4-ssl.mzstatic.com/image/thumb/Video125/v4/e3/8c/25/e38c257c-26a8-d534-5ead-d1f4e3c53118/DIS_FREE_GUY_ITUNES_KEY_ART_US_ARTWORK_EN_2000x3000_2XJF0600000199.lsr/113x170bb.png',
+        attributes: {
+          height: '170',
+        },
+      },
+    ],
+    summary: {
+      label:
+        'A bank teller who discovers he is actually a background player in an open-world video game, decides to become the hero of his own story…one he rewrites himself. Now in a world where there are no limits, he is determined to be the guy who saves his world his way… before it is too late.',
+    },
+    'im:rentalPrice': {
+      label: '$5.99',
+      attributes: {
+        amount: '5.99',
+        currency: 'USD',
+      },
+    },
+    'im:price': {
+      label: '$9.99',
+      attributes: {
+        amount: '9.99',
+        currency: 'USD',
+      },
+    },
+    'im:contentType': {
+      attributes: {
+        term: 'Movie',
+        label: 'Movie',
+      },
+    },
+    title: {
+      label: 'Free Guy - Shawn Levy',
+    },
+    link: [
+      {
+        attributes: {
+          rel: 'alternate',
+          type: 'text/html',
+          href: 'https://itunes.apple.com/us/movie/free-guy/id1584216017?uo=2',
+        },
+      },
+      {
+        'im:duration': {
+          label: '155232.0',
+        },
+        attributes: {
+          title: 'Preview',
+          rel: 'enclosure',
+          type: 'video/x-m4v',
+          href: 'https://video-ssl.itunes.apple.com/itunes-assets/Video125/v4/d9/2e/07/d92e07dc-0367-a8a5-57eb-874d7c06048f/mzvf_10990238994808658383.640x354.h264lc.U.p.m4v',
+          'im:assetType': 'preview',
+        },
+      },
+    ],
+    id: {
+      label: 'https://itunes.apple.com/us/movie/free-guy/id1584216017?uo=2',
+      attributes: {
+        'im:id': '1584216017',
+      },
+    },
+    'im:artist': {
+      label: 'Shawn Levy',
+    },
+    category: {
+      attributes: {
+        'im:id': '4401',
+        term: 'Action & Adventure',
+        scheme: 'https://itunes.apple.com/us/genre/movies-action-adventure/id4401?uo=2',
+        label: 'Action & Adventure',
+      },
+    },
+    'im:releaseDate': {
+      label: '2021-08-13T00:00:00-07:00',
+      attributes: {
+        label: 'August 13, 2021',
+      },
+    },
+  },
 ];
 
 export const FEED_ROW_DATA_MOCK: IMovieFeedDetailList = [

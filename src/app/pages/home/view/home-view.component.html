@@ -1,22 +1,39 @@
 <span class="billboard-container">
-  <app-billboard
-    [bgImgSource]="bgImgSource"
-  ></app-billboard>
+  <app-billboard [bgImgSource]="bgImgSource"></app-billboard>
 </span>
 
 <div data-test="top-movies-row" class="row">
-  <h2 class="row__title">Top 100 Movies</h2>
-  <div class="row__container">
-    <owl-carousel-o [options]="customOptions">
+  <h2>
+    <div class="row__title__container">
+      <div class="row__title" data-test="top-movies-row-title">Top 100 Movies</div>
+      <div class="row__search">
+        <mat-form-field appearance="legacy">
+          <mat-label>Search</mat-label>
+          <input
+            data-test="top-movies-row-search"
+            matInput
+            placeholder="Search movie"
+            [(ngModel)]="topMoviesQuery"
+            (keyup.enter)="onTopMovieSearch()"
+            class="row__search__input"
+          />
+          <button *ngIf="topMoviesQuery" matSuffix mat-icon-button (click)="topMoviesQuery = ''">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+    </div>
+  </h2>
 
+  <div class="row__container" responsiveBaseElement>
+    <owl-carousel-o [options]="owlCustomOptions">
       <ng-container *ngFor="let movie of topMoviesRowData">
         <ng-template carouselSlide [id]="movie.id">
           <div class="movie-container">
-            <img [src]="movie.imgSrc" [alt]="movie.label" [title]="movie.label">
+            <img [src]="movie.imgSrc" [alt]="movie.label" [title]="movie.label" />
           </div>
         </ng-template>
       </ng-container>
-  
     </owl-carousel-o>
   </div>
 </div>

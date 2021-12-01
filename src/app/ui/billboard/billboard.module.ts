@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
+import { MaterialModule } from '@ui/material.module';
 
 import { BillboardComponent } from './billboard.component';
 
 @NgModule({
-  imports: [],
+  imports: [MaterialModule],
   exports: [BillboardComponent],
   declarations: [BillboardComponent],
 })

@@ -7,6 +7,7 @@ import { selectNotNullTopMoviesFeed, fetchTopMoviesFeed } from '@models/movies/s
 import { IMovieFeedDetailList } from '@models/movies/interface/movie.interface';
 import { IMoviesRowDataList } from '@models/movies/interface/movies-row.interface';
 import { MovieProviderService } from '@shared/providers/movie-provider/movie-provider.service';
+import { IBillboard } from '@models/movies/interface/billboard.interface';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +15,7 @@ import { MovieProviderService } from '@shared/providers/movie-provider/movie-pro
 })
 export class HomeComponent extends SmartComponent implements OnInit {
   private topMoviesFeed: IMovieFeedDetailList;
-  public bgImgSource: string;
+  public billboard: IBillboard;
   public topMoviesRowData: IMoviesRowDataList;
 
   constructor(private store: Store<MoviesState>, private movieProviderService: MovieProviderService) {
@@ -39,7 +40,12 @@ export class HomeComponent extends SmartComponent implements OnInit {
   private feedFetchHandler(moviesFeed: IMovieFeedDetailList | null): void {
     if (moviesFeed) {
       this.topMoviesFeed = moviesFeed;
-      this.bgImgSource = this.movieProviderService.getBiggerImage(moviesFeed[0]['im:image'][0]?.label ?? '');
+      this.billboard = {
+        bgImgSrc: this.movieProviderService.getBiggerImage(moviesFeed[0]['im:image'][0]?.label ?? ''),
+        releaseDate: moviesFeed[0]['im:releaseDate'].attributes?.label ?? '',
+        summary: moviesFeed[0].summary?.label ?? '',
+        title: moviesFeed[0]['im:name']?.label ?? '',
+      };
       this.topMoviesRowData = this.movieProviderService.feedToMovieRowDataList(moviesFeed);
     }
   }

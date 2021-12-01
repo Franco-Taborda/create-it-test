@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { DumbComponent } from '@core/components/dumb.component';
+import { IBillboard } from '@models/movies/interface/billboard.interface';
 
 @Component({
   selector: 'app-billboard',
@@ -7,7 +8,7 @@ import { DumbComponent } from '@core/components/dumb.component';
   styleUrls: ['./billboard.component.scss'],
 })
 export class BillboardComponent extends DumbComponent implements OnInit {
-  @Input() bgImgSource: string;
+  @Input() billboard: IBillboard;
 
   constructor() {
     super();

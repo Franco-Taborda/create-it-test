@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { findComponent } from '@shared/utils/test-utils';
+import { MaterialModule } from '@ui/material.module';
 import { BillboardComponent } from './billboard.component';
 
 describe('BillboardComponent', () => {
@@ -10,7 +11,7 @@ describe('BillboardComponent', () => {
     waitForAsync(() => {
       TestBed.configureTestingModule({
         declarations: [BillboardComponent],
-        imports: [],
+        imports: [MaterialModule],
       }).compileComponents();
     }),
   );
@@ -18,6 +19,12 @@ describe('BillboardComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(BillboardComponent);
     component = fixture.componentInstance;
+    component.billboard = {
+      bgImgSrc: 'test/source',
+      releaseDate: 'test date',
+      summary: 'Test summary,',
+      title: 'Test title',
+    };
     fixture.detectChanges();
   });
 
@@ -26,10 +33,22 @@ describe('BillboardComponent', () => {
   });
 
   it('should show a background image', () => {
-    component.bgImgSource = 'test/source';
-    fixture.detectChanges();
+    const bgImg = findComponent(fixture, '[data-test=billboard-image] img');
+    expect(bgImg.attributes['src']).toEqual(component.billboard.bgImgSrc);
+  });
 
-    const bgImg = findComponent(fixture, '[data-test=billboard-image]');
-    expect(bgImg.attributes['src']).toEqual(component.bgImgSource);
+  it('should show a release date', () => {
+    const description = findComponent(fixture, '[data-test=billboard-release-date]');
+    expect(description).toBeTruthy();
+  });
+
+  it('should show a description', () => {
+    const description = findComponent(fixture, '[data-test=billboard-description]');
+    expect(description).toBeTruthy();
+  });
+
+  it('should show a play button', () => {
+    const playButton = findComponent(fixture, '[data-test=play-button]');
+    expect(playButton).toBeTruthy();
   });
 });

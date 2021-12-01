@@ -1,0 +1,23 @@
+<mat-toolbar class="navbar" [ngClass]="{'navbar--filled': isScrolled}">
+  <button class="logo button button--raw button--transparent">
+    <img data-test="logo" src="assets/images/logo.svg">
+  </button>
+  <button data-test="home-button" class="button active button--transparent">Home</button>
+  <button data-test="tv-shows-button" class="button button--transparent">TV Shows</button>
+  <button data-test="movies-button" class="button button--transparent">Movies</button>
+  <button data-test="new-and-popular-button" class="button button--transparent">New & Popular</button>
+  <button data-test="my-list-button" class="button button--transparent">My list</button>
+
+  <span class="spacer"></span>
+
+  <button data-test="search-icon" mat-icon-button>
+    <mat-icon>search</mat-icon>
+  </button>
+  <button data-test="notifications-icon" mat-icon-button>
+    <mat-icon>notifications</mat-icon>
+  </button>
+  <div data-test="account-item" class="account-item">
+    <img data-test="account-image" src="assets/images/account-img.svg">
+    <span class="caret" role="presentation"></span>
+  </div>
+</mat-toolbar>

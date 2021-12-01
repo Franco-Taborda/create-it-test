@@ -1,0 +1,62 @@
+@import "/src/styles.scss";
+
+.navbar {
+  padding: 0 4%;
+  position: fixed;
+  background-color: transparent;
+  background-image: linear-gradient(to bottom,rgba(0,0,0,.7) 10%,rgba(0,0,0,0));
+  transition: background-color .5s ease;
+  z-index: 100;
+
+  &--filled {
+    background-color: $bg-black;
+  }
+
+  .account-item {
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    img {
+      width: 32px;
+      height: 32px;
+    }
+
+    .caret {
+      margin-left: 10px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 5px 5px 0 5px;
+      border-color: #fff transparent transparent transparent;
+      transition: transform 367ms cubic-bezier(.21,0,.07,1);
+      transition: transform 367ms cubic-bezier(.21,0,.07,1);
+    }
+
+    &:hover > .caret {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.logo {
+  margin-right: 25px;
+
+  img {
+    width: 93px;
+  }
+}
+
+.button {
+  padding: 0 10px;
+  color: rgba(white, 0.4);
+  
+  &.active {
+    color: white;
+  }
+}

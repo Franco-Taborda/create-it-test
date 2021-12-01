@@ -10,6 +10,7 @@ module.exports = function (config) {
       require('karma-chrome-launcher'),
       require('karma-jasmine-html-reporter'),
       require('karma-coverage'),
+      require('karma-spec-reporter'),
       require('@angular-devkit/build-angular/plugins/karma')
     ],
     client: {
@@ -32,13 +33,34 @@ module.exports = function (config) {
         { type: 'text-summary' }
       ]
     },
-    reporters: ['progress', 'kjhtml'],
+    reporters: ['spec', 'progress', 'kjhtml'],
+    specReporter: {
+      maxLogLines: 3,
+      suppressErrorSummary: true,
+      suppressFailed: false,
+      suppressPassed: false,
+      suppressSkipped: true,
+      showSpecTiming: false,
+      failFast: false,
+      prefixes: {
+        success: '     OK: ',
+        failure: ' FAILED: ',
+        skipped: 'SKIPPED: '
+      }
+    },
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome'],
+    browsers: ['ChromeHeadlessNoSandbox'],
     singleRun: false,
-    restartOnFileChange: true
+    restartOnFileChange: true,
+    customLaunchers: {
+      ChromeHeadlessNoSandbox: {
+        base: 'ChromeHeadless',
+        flags: ['--no-sandbox', '--disable-web-security', '--disable-gpu' ]
+      },
+    },
+    flags: ['--disable-web-security', '--disable-gpu', '--no-sandbox'],
   });
 };

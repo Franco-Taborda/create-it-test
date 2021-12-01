@@ -1,0 +1,38 @@
+.billboard-container {
+  display: block;
+  position: relative;
+}
+
+.row {
+  position: relative;
+  margin: 3vw 0;
+
+  &__title {
+    font-size: 1.4vw;
+    color: #e5e5e5;
+    vertical-align: bottom;
+    margin-right: 10px;
+
+    &__container {
+      margin: 0 4% .5vw 4%;
+      display: flex;
+      align-items: center;
+    }
+  }
+  
+
+  &__search {
+    vertical-align: bottom;
+    margin-left: 10px;
+
+    input {
+      color: white;
+      font-size: .8vw;
+      line-height: 1vw;
+    }
+  }
+}
+
+.movie-container {
+  max-width: 200px;
+}

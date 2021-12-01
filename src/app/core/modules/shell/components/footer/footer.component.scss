@@ -1,0 +1,40 @@
+.footer {
+  max-width: 980px;
+  margin: 25px auto 0;
+  padding: 0 4%;
+  color: grey;
+
+  &__content {
+    padding-top: 20px;
+  }
+
+  &__section {
+    padding: .5rem;
+    display: grid;
+    column-gap: 1.5rem;
+
+    &--social {
+      display: flex;
+    }
+
+    &--links {
+      grid-template-columns: repeat(4, 1fr);
+      row-gap: 10px;
+    }
+  }
+
+  &__icon {
+    color: white;
+    font-size: 25px;
+  }
+
+  &__link {
+    color: gray;
+    text-decoration: none;
+    font-size: .97rem;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

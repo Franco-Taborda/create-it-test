@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { DumbComponent } from '@core/components/dumb.component';
+import { IBillboard } from '@models/movies/interface/billboard.interface';
 import { IMoviesRowDataList } from '@models/movies/interface/movies-row.interface';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 
@@ -10,7 +11,7 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 })
 export class HomeViewComponent extends DumbComponent implements OnInit {
   @Input() rowMaxLen = 8;
-  @Input() bgImgSource: string;
+  @Input() billboard: IBillboard;
   @Input() topMoviesRowData: IMoviesRowDataList;
   @Output() topMoviesSearchEvent: EventEmitter<string> = new EventEmitter();
 

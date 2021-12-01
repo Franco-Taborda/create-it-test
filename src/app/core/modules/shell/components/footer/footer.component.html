@@ -1,0 +1,17 @@
+<div class="footer">
+  <div class="footer__content">
+    <div class="footer__section footer__section--social">
+      <a data-test="facebook-item" href="http://www.facebook.com/"><fa-icon [icon]="faFacebookF" class="footer__icon"></fa-icon></a>
+      <a data-test="instagram-item" href="http://www.instagram.com/"><fa-icon [icon]="faInstagram" class="footer__icon"></fa-icon></a>
+      <a data-test="twitter-item" href="http://www.twitter.com/"><fa-icon [icon]="faTwitter" class="footer__icon"></fa-icon></a>
+      <a data-test="youtube-item" href="http://www.youtube.com/"><fa-icon [icon]="faYoutube" class="footer__icon"></fa-icon></a>
+      <a data-test="linkedin-item" href="http://www.linkedin.com/"><fa-icon [icon]="faLinkedin" class="footer__icon"></fa-icon></a>
+    </div>
+    <div class="footer__section footer__section--links">
+      <a data-test="footer-link" href="javascript:void(0);" class="footer__link" *ngFor="let link of links">{{ link }}</a>
+    </div>
+    <div class="footer__section footer__section--copyright">
+      <p data-test="copyright" class="footer__copyright">© 1997-2021 Xilften, Inc.</p>
+    </div>
+  </div>
+</div>

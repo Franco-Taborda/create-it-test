@@ -2,7 +2,7 @@
   <app-billboard [billboard]="billboard"></app-billboard>
 </span>
 
-<div data-test="top-movies-row" class="row">
+<div data-test="top-movies-row" class="row" *ngIf="topMoviesRowData">
   <h2>
     <div class="row__title__container">
       <div class="row__title" data-test="top-movies-row-title">Top 100 Movies</div>

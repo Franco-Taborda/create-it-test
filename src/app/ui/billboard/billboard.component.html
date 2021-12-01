@@ -1,17 +1,17 @@
 <div class="billboard">
-  <div class="billboard billboard__wrapper">
+  <div class="billboard billboard__wrapper" *ngIf="billboard">
     <div data-test="billboard-image" class="billboard__image__wrapper">
-      <img class="billboard__image" [src]="billboard.bgImgSrc">
+      <img *ngIf="billboard?.bgImgSrc" class="billboard__image" [src]="billboard.bgImgSrc">
       <div class="billboard__vignette--left"></div>
       <div class="billboard__vignette"></div>
     </div>
     <div class="billboard__content">
       <div class="billboard__title__container">
-        <h1 data-test="billboard-title" class="billboard__title mat-display-4">{{ billboard.title }}</h1>
+        <h1 data-test="billboard-title" class="billboard__title mat-display-4">{{ billboard?.title ?? '' }}</h1>
       </div>
       <div class="billboard__description__container">
-        <p data-test="billboard-release-date" class="billboard__release"><span class="billboard__release__label">Release date:</span>{{billboard.releaseDate}}</p>
-        <p data-test="billboard-description" class="billboard__description">{{billboard.summary}}</p>
+        <p data-test="billboard-release-date" class="billboard__release"><span class="billboard__release__label">Release date:</span>{{ billboard?.releaseDate ?? '' }}</p>
+        <p data-test="billboard-description" class="billboard__description">{{ billboard?.summary ?? '' }}</p>
       </div>
       <div class="billboard__controls__container">
         <div class="billboard__controls">

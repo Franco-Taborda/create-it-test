@@ -22,6 +22,26 @@
     width: 36%;
     color: white;
     left: 4%;
+
+    @media only screen and (max-width: 1400px) {
+      & {
+        width: 42%;
+      }
+    }
+  }
+
+  &__title {
+    max-width: 80vw;
+    width: max-content;
+
+    @media only screen and (max-width: 1400px) {
+      & {
+        font-size: 5vw;
+        line-height: 4.3rem;
+        margin-bottom: 3vw;
+        overflow: visible;
+      }
+    }
   }
 
   &__description {
@@ -113,8 +133,20 @@
   }
 
   &__label {
-    font-size: 1.5rem;
     font-family: 'lato-black';
+    font-size: 1.5rem;
     padding-right: 1.5rem;
+  }
+
+  @media only screen and (max-width: 1400px) {
+    &__icon {
+      font-size: 3rem;
+      width: 3rem;
+      height: 3rem;
+    }
+    &__label {
+      font-size: 1.1rem;
+      padding-right: 1.2rem;
+    }
   }
 }

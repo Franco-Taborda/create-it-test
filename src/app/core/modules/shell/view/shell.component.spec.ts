@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { NavbarComponent } from '../components/navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { findComponent } from '../../../../shared/utils/test-utils';
 
 describe('ShellComponent', () => {
   let component: ShellComponent;
@@ -30,5 +31,13 @@ describe('ShellComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should show a navbar', () => {
+    expect(findComponent(fixture, 'app-navbar')).toBeTruthy();
+  });
+
+  it('should show a footer', () => {
+    expect(findComponent(fixture, 'app-footer')).toBeTruthy();
   });
 });

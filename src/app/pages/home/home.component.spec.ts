@@ -8,6 +8,8 @@ import { findComponentByDirective } from '@shared/utils/test-utils';
 import { HomeViewComponent } from './view/home-view.component';
 import { MovieProviderService } from '@shared/providers/movie-provider/movie-provider.service';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -24,6 +26,7 @@ describe('HomeComponent', () => {
       };
 
       TestBed.configureTestingModule({
+        imports: [FormsModule, CommonModule],
         declarations: [HomeComponent, HomeViewComponent],
         schemas: [CUSTOM_ELEMENTS_SCHEMA],
         providers: [
@@ -67,6 +70,16 @@ describe('HomeComponent', () => {
     const expected = movieProviderService.feedToMovieRowDataList(MOVIES_FEED_DETAILS_LIST_MOCK);
 
     expect(component.topMoviesRowData).toEqual(expected);
+    expect(viewComponent['topMoviesRowData']).toEqual(expected);
+  });
+
+  it('should set the top movies feed filtered items', () => {
+    const query = 'Test';
+    const expected = movieProviderService.filterFeedByString(MOVIES_FEED_DETAILS_LIST_MOCK, query);
+
+    component.onFilterTopMovies(query);
+    fixture.detectChanges();
+
     expect(viewComponent['topMoviesRowData']).toEqual(expected);
   });
 });

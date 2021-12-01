@@ -6,6 +6,7 @@ import { SharedModule } from '@shared/shared.module';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from '../components/navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('ShellComponent', () => {
   let component: ShellComponent;
@@ -14,6 +15,7 @@ describe('ShellComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
+        schemas: [CUSTOM_ELEMENTS_SCHEMA],
         imports: [CommonModule, StylesModule, SharedModule, RouterTestingModule, BrowserAnimationsModule],
         declarations: [ShellComponent, NavbarComponent],
       }).compileComponents();

@@ -13,6 +13,7 @@ import { MovieProviderService } from '@shared/providers/movie-provider/movie-pro
   templateUrl: 'home.component.html',
 })
 export class HomeComponent extends SmartComponent implements OnInit {
+  private topMoviesFeed: IMovieFeedDetailList;
   public bgImgSource: string;
   public topMoviesRowData: IMoviesRowDataList;
 
@@ -37,8 +38,16 @@ export class HomeComponent extends SmartComponent implements OnInit {
 
   private feedFetchHandler(moviesFeed: IMovieFeedDetailList | null): void {
     if (moviesFeed) {
+      this.topMoviesFeed = moviesFeed;
       this.bgImgSource = this.movieProviderService.getBiggerImage(moviesFeed[0]['im:image'][0]?.label ?? '');
       this.topMoviesRowData = this.movieProviderService.feedToMovieRowDataList(moviesFeed);
     }
+  }
+
+  public onFilterTopMovies(query: string): void {
+    this.topMoviesRowData =
+      query !== ''
+        ? this.movieProviderService.filterFeedByString(this.topMoviesFeed, query)
+        : this.movieProviderService.feedToMovieRowDataList(this.topMoviesFeed);
   }
 }

@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Installation
 
-* Make sure to have a compatible Node version with [Angular](https://github.com/angular/angular-cli) v13.0.3
+* Make sure to have a compatible Node version with [Angular](https://github.com/angular/angular-cli) v13.0.3 (14.15, 16.10)
 * Clone the repo and enter to it's root directory
 ```
 npm i

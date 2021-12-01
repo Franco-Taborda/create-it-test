@@ -34,7 +34,8 @@ export interface IMovieLookup {
 
 export interface IMovieFeedBaseDetail {
   label?: string;
-  attributes?: unknown;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  attributes?: any;
 }
 
 export interface IMovieFeedDetail {

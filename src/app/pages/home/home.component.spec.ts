@@ -10,6 +10,7 @@ import { MovieProviderService } from '@shared/providers/movie-provider/movie-pro
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { IBillboard } from '@models/movies/interface/billboard.interface';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -60,10 +61,16 @@ describe('HomeComponent', () => {
   });
 
   it('should set background image for view', () => {
-    const rawImage = MOVIES_FEED_DETAILS_LIST_MOCK[0]['im:image'][0].label as string;
-    const expected = movieProviderService.getBiggerImage(rawImage);
+    const firstMovie = MOVIES_FEED_DETAILS_LIST_MOCK[0];
+    const rawImage = firstMovie['im:image'][0].label as string;
+    const expected: IBillboard = {
+      bgImgSrc: movieProviderService.getBiggerImage(rawImage),
+      releaseDate: firstMovie['im:releaseDate'].attributes?.label ?? '',
+      summary: firstMovie.summary?.label ?? '',
+      title: firstMovie['im:name']?.label ?? '',
+    };
 
-    expect(viewComponent['bgImgSource']).toBe(expected);
+    expect(viewComponent['billboard']).toEqual(expected);
   });
 
   it('should set the top movies row data', () => {
